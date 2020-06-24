@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.14.239.125:3306/u?autoReconnect=true&characterEncoding=UTF-8
+    username: root
+    password: my-secret-pw
+  jpa:
+    show-sql: true
+    properties:
+      hibernat:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
