@@ -20,4 +20,15 @@ public class ProductRepositoryTest extends UApplicationTests {
         }
     }
 
+    @Test
+    public void addProduct() {
+        Product product = new Product();
+        product.setId(111);
+        product.setTime(10);
+        product.setTime_desc("123");
+        product.setGain(5);
+        product.setGainCondition(5);
+        productRepository.save(product);
+    }
+
 }

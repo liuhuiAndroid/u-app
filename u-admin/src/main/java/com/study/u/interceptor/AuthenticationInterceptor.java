@@ -48,7 +48,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             if (userLoginToken.required()) {
                 // 执行认证
                 if (token == null) {
-                    return false;
+                    throw new GlobalException(CodeMsg.TOKEN_ERROR);
                 }
                 // 获取 token 中的 username
                 String username;

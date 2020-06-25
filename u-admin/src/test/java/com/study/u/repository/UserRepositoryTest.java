@@ -10,12 +10,13 @@ public class UserRepositoryTest extends UApplicationTests {
     @Autowired
     UserRepository userRepository;
 
-//    @Test
+    @Test
     public void saveUser() {
         User user = new User();
         user.setId("1");
         user.setUsername("seckill");
         user.setPassword("secpwd");
+        user.setToken("token");
         user.setPhone("phone");
         user.setAvatar("avatar");
         userRepository.save(user);
