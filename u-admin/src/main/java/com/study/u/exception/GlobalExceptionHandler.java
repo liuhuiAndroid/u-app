@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @ControllerAdvice
-@ResponseBody
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
+    @ResponseBody
     public Result<String> exceptionHandler(HttpServletRequest request, Exception exception) {
         exception.printStackTrace();
         if (exception instanceof GlobalException) {

@@ -17,5 +17,5 @@ public class UApplication {
 	public String hello() {
 		return "hello spring boot";
 	}
-}
 
+}

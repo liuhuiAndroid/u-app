@@ -1,15 +1,17 @@
-package com.study.u.validator;
+package com.study.u.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * 处理参数错误
+/***
+ * 用来跳过验证
  */
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ValidAnn {
+public @interface PassToken {
+
+    boolean required() default true;
 
 }

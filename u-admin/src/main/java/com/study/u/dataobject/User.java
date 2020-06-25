@@ -28,9 +28,9 @@ public class User {
     private String avatar;
 
     /** 是否删除. 1：删除 */
-    private int is_delete;
+    private Integer is_delete;
 
     /** 是否锁定. 1：锁定 */
-    private int is_lock;
+    private Integer is_lock;
 
 }

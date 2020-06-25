@@ -10,7 +10,8 @@ public class CodeMsg {
     public static CodeMsg SERVER_ERROR = new CodeMsg(500100, "服务端异常");
     public static CodeMsg BIND_ERROR = new CodeMsg(500101, "参数校验异常：%s");
     public static CodeMsg REQUEST_ILLEGAL = new CodeMsg(500102, "请求非法");
-    public static CodeMsg ACCESS_LIMIT_REACHED = new CodeMsg(500104, "访问太频繁！");
+    public static CodeMsg ACCESS_LIMIT_REACHED = new CodeMsg(500103, "访问太频繁！");
+    public static CodeMsg TOKEN_ERROR = new CodeMsg(500104, "Token无效，请重新登录");
 
     //登录模块 5002XX
     public static CodeMsg SESSION_ERROR = new CodeMsg(500210, "Session不存在或者已经失效");
@@ -20,7 +21,8 @@ public class CodeMsg {
     public static CodeMsg MOBILE_NOT_EXIST = new CodeMsg(500214, "手机号不存在");
     public static CodeMsg PASSWORD_ERROR = new CodeMsg(500215, "密码错误");
     public static CodeMsg USERNAME_IS_EXIST = new CodeMsg(500216, "用户名已存在");
-    public static CodeMsg USERNAME_OR_PASSWORD_ERROR = new CodeMsg(500217, "用户名或密码错误");
+    public static CodeMsg USERNAME_IS_NOT_EXIST = new CodeMsg(500217, "用户不存在");
+    public static CodeMsg USERNAME_OR_PASSWORD_ERROR = new CodeMsg(500218, "用户名或密码错误");
 
     private CodeMsg() {
     }
