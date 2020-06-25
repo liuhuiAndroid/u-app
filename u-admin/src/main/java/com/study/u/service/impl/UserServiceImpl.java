@@ -46,7 +46,6 @@ public class UserServiceImpl implements UserService {
         if (byUsername != null) {
             throw new GlobalException(CodeMsg.USERNAME_IS_EXIST);
         }
-
         User user = new User();
         user.setId(UUIDUtil.uuid());
         user.setUsername(username);

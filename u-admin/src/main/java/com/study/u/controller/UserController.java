@@ -1,9 +1,6 @@
 package com.study.u.controller;
 
 import com.study.u.annotation.UserLoginToken;
-import com.study.u.dataobject.User;
-import com.study.u.exception.GlobalException;
-import com.study.u.result.CodeMsg;
 import com.study.u.result.Result;
 import com.study.u.service.UserService;
 import com.study.u.utils.JwtUtil;
