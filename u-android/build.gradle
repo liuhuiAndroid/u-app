@@ -1,0 +1,38 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.compile_sdk_version = 29
+    ext.build_tools_version = "29.0.3"
+    ext.application_id = "com.study.u"
+    ext.min_sdk_version = 21
+    ext.target_sdk_version = 29
+    ext.version_code = 1
+    ext.version_name = "1.0"
+
+    ext.kotlin_version = "1.3.72"
+    ext.lifecycle_version = "2.2.0"
+    ext.work_version = "2.3.4"
+    ext.arouter_api_version = "1.5.0"
+    ext.arouter_compiler_version = "1.2.2"
+
+    repositories {
+        google()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.0.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

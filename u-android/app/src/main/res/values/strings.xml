@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">u-android</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="login_login">登录</string>
+    <string name="login_forgot_password">忘记密码</string>
+    <string name="login_register">注册会员</string>
+    <string name="login_hint_account">请输入你的登录账号</string>
+    <string name="login_hint_password">请输入你的登录密码</string>
+    <string name="login_account_input_error">账号为6&#8211;20位英文数字组合</string>
+    <string name="login_password_input_error">密码为6&#8211;20位英文数字组合</string>
+    <string name="login_dialog">正在登录</string>
+    <string name="login_success">登录成功</string>
+
+    <string name="dialog_loading">正在加载</string>
+    <string name="dialog_confirm">确定</string>
+    <string name="dialog_error_admin">登录失败，请联系我们</string>
+
+</resources>

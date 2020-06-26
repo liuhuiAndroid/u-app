@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/gap_16"
+    android:paddingTop="@dimen/gap_16"
+    android:paddingEnd="@dimen/gap_32"
+    android:paddingBottom="@dimen/gap_16">
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/messageTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_dp_14"
+        android:text="@string/dialog_loading"
+        android:textColor="@color/colorTextMain"
+        android:textSize="@dimen/text_dp_16" />
+</LinearLayout>
