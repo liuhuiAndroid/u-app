@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">u-android</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">产品</string>
+    <string name="title_dashboard">推广</string>
+    <string name="title_notifications">资产</string>
+    <string name="title_me">我的</string>
 
     <string name="login_login">登录</string>
     <string name="login_forgot_password">忘记密码</string>

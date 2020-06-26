@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.NotificationsFragment">
+
+    <Space
+        android:id="@+id/mSpaceTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/gap_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:foreground="?selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mSpaceTop">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mAvatarImageView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="@dimen/gap_16"
+            android:layout_marginTop="@dimen/gap_24"
+            android:layout_marginBottom="@dimen/gap_24"
+            android:scaleType="centerCrop"
+            android:src="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mTvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/gap_16"
+            android:layout_marginTop="@dimen/gap_24"
+            android:textColor="@color/colorTextMain"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/mAvatarImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Username" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mTvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/gap_16"
+            android:textColor="@color/colorTextMid"
+            android:textSize="@dimen/text_dp_12"
+            app:layout_constraintBottom_toTopOf="@id/mTvCoin"
+            app:layout_constraintStart_toEndOf="@id/mAvatarImageView"
+            app:layout_constraintTop_toBottomOf="@id/mTvUsername" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mTvCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/gap_16"
+            android:textColor="@color/colorTextMid"
+            android:textSize="@dimen/text_dp_12"
+            app:layout_constraintBottom_toBottomOf="@id/mAvatarImageView"
+            app:layout_constraintStart_toEndOf="@id/mAvatarImageView" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Space
+        android:id="@+id/mSpaceBottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/gap_16"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mClModifyPassword"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:background="@android:color/white"
+        android:foreground="?selectableItemBackground"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mSpaceBottom">
+
+        <ImageView
+            android:id="@+id/mIvIcon"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/mTvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/gap_16"
+            android:textColor="@color/colorTextMain"
+            android:textSize="@dimen/text_dp_15"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mIvIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="修改密码" />
+
+        <ImageView
+            android:id="@+id/mIvArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="@dimen/gap_24"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:textColor="@color/colorTextLight"
+            android:textSize="@dimen/text_dp_15"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/mIvArrow"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

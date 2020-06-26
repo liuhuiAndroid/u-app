@@ -1,4 +1,4 @@
-package com.study.u.ui.notifications
+package com.study.u.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.study.u.R
+import com.study.u.viewmodel.NotificationsViewModel
 
 class NotificationsFragment : Fragment() {
 

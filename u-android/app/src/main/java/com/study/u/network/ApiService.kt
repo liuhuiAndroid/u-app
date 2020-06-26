@@ -1,5 +1,6 @@
 package com.study.u.network
 
+import com.study.u.data.Product
 import com.study.u.data.request.LoginRequest
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -13,5 +14,11 @@ interface ApiService {
     suspend fun userLogin(
         @Body loginRequest: LoginRequest
     ): ApiResponse<String>
+
+    /**
+     * 商品列表
+     */
+    @POST("product/list")
+    suspend fun productList(): ApiResponse<List<Product>?>
 
 }

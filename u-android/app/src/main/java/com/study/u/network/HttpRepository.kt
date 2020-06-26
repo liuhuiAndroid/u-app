@@ -1,8 +1,12 @@
 package com.study.u.network
 
 import com.study.u.BuildConfig
+import com.study.u.data.Product
 import com.study.u.data.request.LoginRequest
 import com.study.u.exception.APIException
+import com.study.u.ext.decode
+import com.study.u.utilities.MMKVConstants
+import com.study.u.utilities.ZY_SOURCE
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -49,9 +53,12 @@ object HttpRepository {
     private fun provideHeaderInterceptor(): Interceptor =
         Interceptor {
             val timestamp = System.currentTimeMillis().toString()
+            val token = decode(MMKVConstants.TOKEN, "")
             val request = it.request().newBuilder()
                 .addHeader("Connection", "close")
                 .addHeader("timestamp", timestamp)
+                .addHeader("token", token)
+                .addHeader("app_type", ZY_SOURCE)
                 .build()
             it.proceed(request)
         }
@@ -63,6 +70,14 @@ object HttpRepository {
         loginRequest: LoginRequest
     ): String {
         val responseBody = getApiService().userLogin(loginRequest)
+        return preProcessData(responseBody)
+    }
+
+    /**
+     * 商品列表
+     */
+    suspend fun productList(): List<Product>? {
+        val responseBody = getApiService().productList()
         return preProcessData(responseBody)
     }
 
