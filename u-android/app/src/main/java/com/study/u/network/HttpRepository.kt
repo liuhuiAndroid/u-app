@@ -1,8 +1,11 @@
 package com.study.u.network
 
 import com.study.u.BuildConfig
+import com.study.u.data.Asset
 import com.study.u.data.Product
 import com.study.u.data.request.LoginRequest
+import com.study.u.data.request.ModifyPasswordRequest
+import com.study.u.data.request.WithdrawRequest
 import com.study.u.exception.APIException
 import com.study.u.ext.decode
 import com.study.u.utilities.MMKVConstants
@@ -84,6 +87,16 @@ object HttpRepository {
     }
 
     /**
+     * 修改密码
+     */
+    suspend fun userModifyPassword(
+        modifyPasswordRequest: ModifyPasswordRequest
+    ): String {
+        val responseBody = getApiService().userModifyPassword(modifyPasswordRequest)
+        return preProcessData(responseBody)
+    }
+
+    /**
      * 商品列表
      */
     suspend fun productList(): List<Product>? {
@@ -99,4 +112,19 @@ object HttpRepository {
         return preProcessData(responseBody)
     }
 
+    /**
+     * 查询资产
+     */
+    suspend fun assetFind(): Asset {
+        val responseBody = getApiService().assetFind()
+        return preProcessData(responseBody)
+    }
+
+    /**
+     * 提现
+     */
+    suspend fun assetWithdraw(withdrawRequest: WithdrawRequest): String {
+        val responseBody = getApiService().assetWithdraw(withdrawRequest)
+        return preProcessData(responseBody)
+    }
 }

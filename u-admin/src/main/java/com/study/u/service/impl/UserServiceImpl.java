@@ -1,7 +1,9 @@
 package com.study.u.service.impl;
 
+import com.study.u.dataobject.Asset;
 import com.study.u.dataobject.User;
 import com.study.u.exception.GlobalException;
+import com.study.u.repository.AssetRepository;
 import com.study.u.repository.UserRepository;
 import com.study.u.result.CodeMsg;
 import com.study.u.service.UserService;
@@ -11,11 +13,16 @@ import com.study.u.vo.PasswordVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    AssetRepository assetRepository;
 
     @Override
     public User findUserById(String id) {
@@ -41,6 +48,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void saveUser(String username, String password, String token) {
         User byUsername = userRepository.findByUsername(username);
         if (byUsername != null) {
@@ -52,6 +60,14 @@ public class UserServiceImpl implements UserService {
         user.setPassword(password);
         user.setToken(token);
         userRepository.save(user);
+
+        Asset asset = new Asset();
+        asset.setId(UUIDUtil.uuid());
+        asset.setUsername(username);
+        asset.setInvest(0);
+        asset.setExtend(0);
+        asset.setAllUsdt(0);
+        assetRepository.save(asset);
     }
 
     @Override

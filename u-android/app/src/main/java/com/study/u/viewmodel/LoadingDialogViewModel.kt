@@ -15,7 +15,4 @@ class LoadingDialogViewModel : ViewModel() {
         liveData.value = 1
     }
 
-    fun setValue2() {
-        liveData.value = 2
-    }
 }

@@ -24,6 +24,8 @@ public class CodeMsg {
     public static CodeMsg USERNAME_IS_NOT_EXIST = new CodeMsg(500217, "用户不存在");
     public static CodeMsg USERNAME_OR_PASSWORD_ERROR = new CodeMsg(500218, "用户名或密码错误");
 
+    public static CodeMsg ASSET_IS_NOT_ENOUGH = new CodeMsg(500219, "可提现金额不足");
+
     private CodeMsg() {
     }
 

@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.study.u.data.request.LoginRequest
+import com.study.u.data.request.ModifyPasswordRequest
 import com.study.u.exception.APIException
 import com.study.u.network.ApiError
 import com.study.u.network.HttpRepository
@@ -24,9 +25,15 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
         MutableLiveData<String>()
     }
 
+    private val modifyPasswordLiveData by lazy {
+        MutableLiveData<String>()
+    }
+
     fun fail(): MutableLiveData<ApiError> = failLiveData
 
     fun subscribeLogin(): MutableLiveData<String> = loginLiveData
+
+    fun subscribeModifyPassword(): MutableLiveData<String> = modifyPasswordLiveData
 
     fun login(username: String, password: String) {
         viewModelScope.launch {
@@ -66,4 +73,21 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    fun modifyPassword(oldPassword: String, newPassword: String) {
+        viewModelScope.launch {
+            try {
+                val message = withContext(Dispatchers.IO) {
+                    HttpRepository.userModifyPassword(ModifyPasswordRequest(oldPassword, newPassword))
+                }
+                modifyPasswordLiveData.value = message
+            } catch (e: Exception) {
+                e.printStackTrace()
+                if (e is APIException) {
+                    failLiveData.value = ApiError(e.code, e.message)
+                } else {
+                    failLiveData.value = ApiError(0, e.message)
+                }
+            }
+        }
+    }
 }

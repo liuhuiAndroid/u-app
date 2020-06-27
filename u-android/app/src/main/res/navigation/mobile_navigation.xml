@@ -18,10 +18,10 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.study.u.ui.fragment.NotificationsFragment"
+        android:id="@+id/navigation_asset"
+        android:name="com.study.u.ui.fragment.AssetFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_asset" />
 
     <fragment
         android:id="@+id/navigation_me"

@@ -1,14 +1,11 @@
 package com.study.u.ui
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.jakewharton.rxbinding4.widget.textChanges
 import com.study.u.R
 import com.study.u.ext.debounceClick
-import com.study.u.ext.encodeKV
-import com.study.u.utilities.MMKVConstants
 import com.study.u.utilities.errorDialog
 import com.study.u.utilities.hideKeyboard
 import com.study.u.utilities.snackInfo

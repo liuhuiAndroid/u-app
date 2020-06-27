@@ -17,7 +17,7 @@ class HomeViewModel : ViewModel() {
 
     private var orderLiveData: MutableLiveData<String>? = null
 
-    fun getWeatherLiveData(): LiveData<List<Product>?>? {
+    fun getProductListLiveData(): LiveData<List<Product>?>? {
         if (productListLiveData == null) {
             productListLiveData = MutableLiveData<List<Product>?>()
             loadProductList()

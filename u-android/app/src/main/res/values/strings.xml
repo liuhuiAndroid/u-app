@@ -17,11 +17,24 @@
 
     <string name="dialog_loading">正在加载</string>
     <string name="dialog_confirm">确定</string>
-    <string name="dialog_error_admin">登录失败，请联系我们</string>
+    <string name="dialog_error_admin">请求失败，请联系我们</string>
 
     <string name="register_register">注册</string>
     <string name="register_dialog">正在注册</string>
     <string name="register_success">注册成功</string>
 
+    <string name="modify_password">修改密码</string>
+    <string name="modify_password_old">请输入你的原密码</string>
+    <string name="modify_password_new">请输入你的新密码</string>
+    <string name="modify_password_confirm">请确认你的新密码</string>
+    <string name="modify_password_new_error">两次新密码不一致</string>
+    <string name="modify_password_dialog">正在修改</string>
+    <string name="modify_password_success">修改密码成功</string>
+
+    <string name="asset_withdraw">提现</string>
+    <string name="asset_withdraw_address">请输入你的提现地址</string>
+    <string name="asset_withdraw_number">请输入你的提现数量</string>
+    <string name="asset_withdraw_dialog">正在提现</string>
+    <string name="asset_withdraw_success">提现成功</string>
 
 </resources>

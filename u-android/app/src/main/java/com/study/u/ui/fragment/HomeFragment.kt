@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        homeViewModel.getWeatherLiveData()?.observe(viewLifecycleOwner, Observer {
+        homeViewModel.getProductListLiveData()?.observe(viewLifecycleOwner, Observer {
             Timber.i("list: $it")
 
             it?.let {

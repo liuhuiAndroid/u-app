@@ -47,9 +47,9 @@ public class UserController {
     @ValidAnn
     @UserLoginToken
     @PostMapping(value = "/modify/password")
-    public Result modifyPassword(@Valid @RequestBody PasswordVo passwordVo, BindingResult bindingResult, HttpServletRequest request) {
+    public Result<String> modifyPassword(@Valid @RequestBody PasswordVo passwordVo, BindingResult bindingResult, HttpServletRequest request) {
         String username = (String) request.getAttribute("username");
         userService.updateUserByUsername(username, passwordVo);
-        return Result.success();
+        return Result.success("修改密码成功");
     }
 }
