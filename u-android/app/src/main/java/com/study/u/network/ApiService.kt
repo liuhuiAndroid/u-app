@@ -16,6 +16,14 @@ interface ApiService {
     ): ApiResponse<String>
 
     /**
+     * 注册
+     */
+    @POST("user/register")
+    suspend fun userRegister(
+        @Body loginRequest: LoginRequest
+    ): ApiResponse<String>
+
+    /**
      * 商品列表
      */
     @POST("product/list")

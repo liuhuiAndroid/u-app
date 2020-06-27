@@ -15,8 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="?actionBarSize"
-            app:navigationIcon="@drawable/ic_close_black_24dp" />
+            android:minHeight="?actionBarSize" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -92,41 +91,15 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/loginButton"
+                android:id="@+id/registerButton"
                 android:layout_width="0dp"
                 android:layout_height="52dp"
                 android:enabled="false"
-                android:text="@string/login_login"
+                android:text="@string/register_register"
                 android:textSize="@dimen/text_dp_17"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/mTextInputPassword" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/loginButton">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/forgetPasswordButton"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/login_forgot_password"
-                    android:textColor="@color/colorTextWeak" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/registerButton"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/login_register"
-                    android:textColor="@color/colorLabel" />
-            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

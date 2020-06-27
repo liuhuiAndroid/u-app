@@ -1,6 +1,7 @@
 package com.study.u.ui
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
@@ -50,6 +51,14 @@ open class BaseActivity : AppCompatActivity() {
             isCancelable = cancelable
             show(supportFragmentManager, LoadingDialog.TAG)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?) = when (item?.itemId) {
+        android.R.id.home -> {
+            onBackPressedDispatcher.onBackPressed()
+            true
+        }
+        else -> super.onOptionsItemSelected(item)
     }
 
 }

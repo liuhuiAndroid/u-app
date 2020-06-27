@@ -17,21 +17,23 @@ import com.study.u.viewmodel.LoadingDialogViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.kotlin.Observables
 import io.reactivex.rxjava3.kotlin.subscribeBy
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_register.mTextInputAccount
+import kotlinx.android.synthetic.main.activity_register.mTextInputPassword
+import kotlinx.android.synthetic.main.activity_register.registerButton
 
-class LoginActivity : BaseActivity() {
+class RegisterActivity : BaseActivity() {
 
     private lateinit var loadingDialogViewModel: LoadingDialogViewModel
     private lateinit var accountViewModel: AccountViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_register)
 
         loadingDialogViewModel = ViewModelProvider(this)[LoadingDialogViewModel::class.java]
         accountViewModel = ViewModelProvider(this)[AccountViewModel::class.java]
 
-        initToolbar()
+        initToolbar(R.string.register_register)
 
         mTextInputAccount.editText!!.textChanges()
             .observeOn(AndroidSchedulers.mainThread())
@@ -55,26 +57,25 @@ class LoginActivity : BaseActivity() {
         }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy(onNext = {
-                loginButton.isEnabled = it
+                registerButton.isEnabled = it
             })
 
         loadingDialogViewModel.subscribe().observe(this, Observer {
-            accountViewModel.login(
+            accountViewModel.register(
                 mTextInputAccount.editText!!.text.toString(),
                 mTextInputPassword.editText!!.text.toString()
             )
         })
 
         accountViewModel.apply {
-            subscribeLogin().observe(this@LoginActivity, Observer {
+            subscribeLogin().observe(this@RegisterActivity, Observer {
                 cancelLoadingDialog()
-                // 登录成功
-                encodeKV(MMKVConstants.TOKEN, it)
-                snackInfo(R.string.login_success)
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                // 注册成功
+                snackInfo(R.string.register_success)
+                finish()
             })
 
-            fail().observe(this@LoginActivity, Observer {
+            fail().observe(this@RegisterActivity, Observer {
                 cancelLoadingDialog()
                 if (it.msg != null) {
                     errorDialog(it.msg)
@@ -84,18 +85,10 @@ class LoginActivity : BaseActivity() {
             })
         }
 
-        loginButton.debounceClick {
-            hideKeyboard()
-            showLoadingDialog(true, R.string.login_dialog)
-            loadingDialogViewModel.setValue()
-        }
-
-        forgetPasswordButton.debounceClick {
-
-        }
-
         registerButton.debounceClick {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            hideKeyboard()
+            showLoadingDialog(true, R.string.register_dialog)
+            loadingDialogViewModel.setValue()
         }
     }
 

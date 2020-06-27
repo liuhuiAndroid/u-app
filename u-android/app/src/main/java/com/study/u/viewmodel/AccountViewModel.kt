@@ -47,4 +47,23 @@ class AccountViewModel(application: Application) : AndroidViewModel(application)
         }
     }
 
+    fun register(username: String, password: String) {
+        viewModelScope.launch {
+            try {
+                val token = withContext(Dispatchers.IO) {
+                    HttpRepository.userRegister(LoginRequest(username, password))
+                }
+                Timber.i("token:${token}")
+                loginLiveData.value = token
+            } catch (e: Exception) {
+                e.printStackTrace()
+                if (e is APIException) {
+                    failLiveData.value = ApiError(e.code, e.message)
+                } else {
+                    failLiveData.value = ApiError(0, e.message)
+                }
+            }
+        }
+    }
+
 }

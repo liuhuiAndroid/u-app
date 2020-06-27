@@ -74,6 +74,16 @@ object HttpRepository {
     }
 
     /**
+     * 注册
+     */
+    suspend fun userRegister(
+        loginRequest: LoginRequest
+    ): String {
+        val responseBody = getApiService().userRegister(loginRequest)
+        return preProcessData(responseBody)
+    }
+
+    /**
      * 商品列表
      */
     suspend fun productList(): List<Product>? {
