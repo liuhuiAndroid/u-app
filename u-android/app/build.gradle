@@ -40,7 +40,7 @@ android {
         beta {
             dimension 'environment'
             // 区分环境：开发环境地址
-            buildConfigField 'String', 'BASE_URL', "\"http://192.168.1.5:8081/\""
+            buildConfigField 'String', 'BASE_URL', "\"http://106.14.239.125:8081/\""
             manifestPlaceholders = [
                     app_name: "U财富-β"
             ]
