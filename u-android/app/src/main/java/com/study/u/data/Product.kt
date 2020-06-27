@@ -4,7 +4,7 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Product(
-    var id: Integer,
+    var id: Int,
     /** 期限 单位天. */
     var time: Int,
     /** 期限中文描述.  */

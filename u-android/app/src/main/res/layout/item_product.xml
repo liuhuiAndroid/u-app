@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:foreground="?selectableItemBackground"
+    android:paddingStart="@dimen/gap_16"
+    android:paddingTop="@dimen/gap_16"
+    android:paddingEnd="0dp"
+    android:paddingBottom="@dimen/gap_16">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/gap_16"
+        android:layout_marginEnd="@dimen/gap_16"
+        android:ellipsize="end"
+        android:lines="2"
+        android:textColor="@color/colorTextMain"
+        android:textSize="@dimen/text_dp_18"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="产品AAAAAAAAAAA" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/gap_16"
+        android:ellipsize="middle"
+        android:maxWidth="180dp"
+        android:singleLine="true"
+        android:textColor="@color/colorAddress"
+        android:textSize="@dimen/text_dp_12"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:text="产品介绍介绍" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/label"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/gap_4"
+        android:layout_marginEnd="@dimen/gap_16"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="@color/colorTextMid"
+        android:textSize="@dimen/text_dp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/address"
+        app:layout_constraintTop_toTopOf="@+id/address"
+        tools:text="label" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/gap_16"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorAddress"
+        android:textSize="@dimen/text_dp_20"
+        app:layout_constraintBottom_toBottomOf="@+id/image"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        tools:text="盈利XXX" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/gap_16"
+        android:layout_marginTop="@dimen/gap_12"
+        android:background="#EEEEEE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/image" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/gap_16"
+        android:text="立即参与"
+        android:textSize="@dimen/text_dp_17"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/line" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

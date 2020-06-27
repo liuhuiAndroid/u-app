@@ -15,12 +15,22 @@ class HomeViewModel : ViewModel() {
 
     private var productListLiveData: MutableLiveData<List<Product>?>? = null
 
+    private var orderLiveData: MutableLiveData<String>? = null
+
     fun getWeatherLiveData(): LiveData<List<Product>?>? {
         if (productListLiveData == null) {
             productListLiveData = MutableLiveData<List<Product>?>()
             loadProductList()
         }
         return productListLiveData
+    }
+
+    fun getOrderLiveData(productId: Int): LiveData<String>? {
+        if (orderLiveData == null) {
+            orderLiveData = MutableLiveData<String>()
+            orderAdd(productId)
+        }
+        return orderLiveData
     }
 
     private fun loadProductList() {
@@ -30,6 +40,19 @@ class HomeViewModel : ViewModel() {
                     HttpRepository.productList()
                 }
                 productListLiveData?.value = productList
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun orderAdd(productId: Int) {
+        viewModelScope.launch {
+            try {
+                val message = withContext(Dispatchers.IO) {
+                    HttpRepository.orderAdd(productId)
+                }
+                orderLiveData?.value = message
             } catch (e: Exception) {
                 e.printStackTrace()
             }

@@ -2,8 +2,7 @@ package com.study.u.network
 
 import com.study.u.data.Product
 import com.study.u.data.request.LoginRequest
-import retrofit2.http.Body
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -28,5 +27,14 @@ interface ApiService {
      */
     @POST("product/list")
     suspend fun productList(): ApiResponse<List<Product>?>
+
+    /**
+     * 下单
+     */
+    @FormUrlEncoded
+    @POST("order/add")
+    suspend fun orderAdd(
+        @Field("productId") productId: Int
+    ): ApiResponse<String>
 
 }

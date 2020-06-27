@@ -91,4 +91,12 @@ object HttpRepository {
         return preProcessData(responseBody)
     }
 
+    /**
+     * 下单
+     */
+    suspend fun orderAdd(productId: Int): String {
+        val responseBody = getApiService().orderAdd(productId)
+        return preProcessData(responseBody)
+    }
+
 }

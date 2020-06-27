@@ -19,14 +19,14 @@ public class OrderController {
     OrderService orderService;
 
     /**
-     * 商品列表
+     * 下单
      */
     @UserLoginToken
     @PostMapping(value = "/add")
-    public Result addOrder(@RequestParam("productId") int productId, HttpServletRequest request) {
+    public Result<String> addOrder(@RequestParam("productId") int productId, HttpServletRequest request) {
         String username = (String) request.getAttribute("username");
         orderService.addOrder(username, productId);
-        return Result.success();
+        return Result.success("下单成功");
     }
 
 }
