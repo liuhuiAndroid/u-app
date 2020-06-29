@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface OrderService {
 
+    List<Order> findAll();
+
     Order addOrder(String username, int productId);
 
+    void modifyStatus(String orderId);
 }

@@ -7,11 +7,19 @@ import com.study.u.utils.UUIDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
     OrderRepository orderRepository;
+
+    @Override
+    public List<Order> findAll() {
+        return orderRepository.findAll();
+    }
 
     @Override
     public Order addOrder(String username, int productId) {
@@ -25,6 +33,16 @@ public class OrderServiceImpl implements OrderService {
         order.setIsWithdraw(12);
         orderRepository.save(order);
         return order;
+    }
+
+    @Override
+    public void modifyStatus(String orderId) {
+        Optional<Order> orderOptional = orderRepository.findById(orderId);
+        Order order = orderOptional.get();
+        if (order != null) {
+            order.setIsWithdraw(1);
+            orderRepository.save(order);
+        }
     }
 
 }
