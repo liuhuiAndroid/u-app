@@ -8,8 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.study.u.R
+import com.study.u.rx.RxAccount
 import com.study.u.ui.ModifyPasswordActivity
 import com.study.u.viewmodel.MeViewModel
+import io.reactivex.rxjava3.functions.Consumer
+import io.reactivex.rxjava3.kotlin.subscribeBy
 import kotlinx.android.synthetic.main.fragment_me.*
 
 class MeFragment : Fragment() {
@@ -32,7 +35,11 @@ class MeFragment : Fragment() {
 
         // 修改密码
         mClModifyPassword.setOnClickListener {
-            startActivity(Intent(activity, ModifyPasswordActivity::class.java))
+            RxAccount(this).check().subscribeBy {
+                if (it) {
+                    startActivity(Intent(activity, ModifyPasswordActivity::class.java))
+                }
+            }
         }
     }
 

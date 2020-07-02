@@ -1,5 +1,6 @@
 package com.study.u.ui
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -71,7 +72,10 @@ class LoginActivity : BaseActivity() {
                 // 登录成功
                 encodeKV(MMKVConstants.TOKEN, it)
                 snackInfo(R.string.login_success)
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                // 测试登录
+                // startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                setResult(Activity.RESULT_OK)
+                finish()
             })
 
             fail().observe(this@LoginActivity, Observer {
