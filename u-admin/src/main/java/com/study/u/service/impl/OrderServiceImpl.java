@@ -33,9 +33,10 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order addOrder(String username, int productId) {
         Optional<Order> orderOptional = orderRepository.findByUsernameAndIsWithdraw(username, 1);
-        if (orderOptional.get() == null) {
+        Order order = orderOptional.isPresent() ? orderOptional.get() : null;
+        if (order == null) {
             Product product = productService.findById(productId);
-            Order order = new Order();
+            order = new Order();
             order.setId(UUIDUtil.uuid());
             order.setUsername(username);
             order.setInvestAmount(product.getGainCondition());
@@ -44,7 +45,8 @@ public class OrderServiceImpl implements OrderService {
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.DATE, product.getTime());
             order.setEndTime(calendar.getTime());
-            order.setIsWithdraw(1);
+            order.setIsWithdraw(0);
+            order.setStatus(0);
             orderRepository.save(order);
             return order;
         } else {
@@ -55,9 +57,9 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void modifyStatus(String orderId) {
         Optional<Order> orderOptional = orderRepository.findById(orderId);
-        Order order = orderOptional.get();
+        Order order = orderOptional.isPresent() ? orderOptional.get() : null;
         if (order != null) {
-            order.setIsWithdraw(1);
+            order.setStatus(1);
             orderRepository.save(order);
         }
     }

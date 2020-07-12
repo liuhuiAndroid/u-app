@@ -1,7 +1,6 @@
 package com.study.u.dataobject;
 
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -40,8 +39,13 @@ public class Order {
     private Date endTime;
 
     /**
-     * 是否提现. 1：提现中 2：已提现
+     * 是否提现. 0：未提现 1：提现中 2：已提现
      */
     private Integer isWithdraw;
+
+    /**
+     * 订单状态. 0：待审核 1：审核通过
+     */
+    private Integer status;
 
 }

@@ -23,7 +23,6 @@ public class ProductController {
      * 商品列表
      */
     @ValidAnn
-    @UserLoginToken
     @PostMapping(value = "/list")
     public Result<List<Product>> productList() {
         List<Product> productList = productService.findAll();

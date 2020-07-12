@@ -25,7 +25,6 @@ public class OrderController {
      * 订单列表
      */
     @ValidAnn
-    @UserLoginToken
     @PostMapping(value = "/list")
     public Result<List<Order>> orderList() {
         List<Order> productList = orderService.findAll();
@@ -44,7 +43,7 @@ public class OrderController {
     }
 
     /**
-     * 修改订单状态
+     * 审核订单
      */
     @PostMapping(value = "/modifyStatus")
     public Result<String> modifyStatus(@RequestParam("orderId") String orderId) {

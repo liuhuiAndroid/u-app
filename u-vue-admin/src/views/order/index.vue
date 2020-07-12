@@ -40,7 +40,7 @@
       </el-table-column>
       <el-table-column label="状态" width="110" align="center">
         <template slot-scope="scope">
-          {{ scope.row.isWithdraw }}
+          {{ scope.row.status === 1 ? '审核通过' : '未审核' }}
         </template>
       </el-table-column>
       <el-table-column label="操作" align="center" width="350" class-name="small-padding fixed-width">
@@ -101,7 +101,7 @@ export default {
         'orderId': row.id
       }
       modifyOrderStatus(params).then(response => {
-        row.isWithdraw = '1'
+        row.status = 1
       })
     }
   }
