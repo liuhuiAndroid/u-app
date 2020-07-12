@@ -1,8 +1,10 @@
 package com.study.u.dataobject;
 
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity
@@ -30,12 +32,12 @@ public class Order {
     /**
      * 投资日期.
      */
-    private String startTime;
+    private Date startTime;
 
     /**
      * 到期日期.
      */
-    private String endTime;
+    private Date endTime;
 
     /**
      * 是否提现. 1：提现中 2：已提现

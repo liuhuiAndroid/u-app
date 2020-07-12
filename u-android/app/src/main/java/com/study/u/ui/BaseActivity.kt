@@ -1,13 +1,25 @@
 package com.study.u.ui
 
+import android.net.ParseException
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
 import com.study.u.R
+import com.study.u.exception.APIException
+import com.study.u.ext.toast
 import com.study.u.widget.LoadingDialog
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import org.json.JSONException
+import retrofit2.HttpException
+import java.net.ConnectException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
 
 open class BaseActivity : AppCompatActivity() {
 

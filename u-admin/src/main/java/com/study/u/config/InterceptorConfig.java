@@ -8,19 +8,20 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Token拦截器
+ * 挪到 CorsConfig
  */
-@Configuration
+//@Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authenticationInterceptor())
-                .addPathPatterns("/**");
-    }
-
-    @Bean
-    public AuthenticationInterceptor authenticationInterceptor() {
-        return new AuthenticationInterceptor();
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(authenticationInterceptor())
+//                .addPathPatterns("/**");
+//    }
+//
+//    @Bean
+//    public AuthenticationInterceptor authenticationInterceptor() {
+//        return new AuthenticationInterceptor();
+//    }
 
 }

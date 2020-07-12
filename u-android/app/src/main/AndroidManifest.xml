@@ -29,7 +29,7 @@
 
         <activity android:name=".ui.ModifyPasswordActivity" />
 
-        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.MainActivity"/>
 
         <activity android:name=".ui.WithdrawActivity" />
 

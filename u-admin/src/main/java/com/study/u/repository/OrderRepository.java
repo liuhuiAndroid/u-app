@@ -8,5 +8,7 @@ import java.util.Optional;
 public interface OrderRepository extends JpaRepository<Order, String> {
 
     Optional<Order> findById(String id);
+
+    Optional<Order> findByUsernameAndIsWithdraw(String username, Integer isWithdraw);
 }
 

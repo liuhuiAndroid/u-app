@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.lang.Exception
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel : BaseViewModel() {
 
     private var productListLiveData: MutableLiveData<List<Product>?>? = null
 
@@ -26,36 +26,26 @@ class HomeViewModel : ViewModel() {
     }
 
     fun getOrderLiveData(productId: Int): LiveData<String>? {
-        if (orderLiveData == null) {
-            orderLiveData = MutableLiveData<String>()
-            orderAdd(productId)
-        }
+        orderLiveData = MutableLiveData<String>()
+        orderAdd(productId)
         return orderLiveData
     }
 
     private fun loadProductList() {
-        viewModelScope.launch {
-            try {
-                val productList = withContext(Dispatchers.IO) {
-                    HttpRepository.productList()
-                }
-                productListLiveData?.value = productList
-            } catch (e: Exception) {
-                e.printStackTrace()
+        launch(block = {
+            val productList = withContext(Dispatchers.IO) {
+                HttpRepository.productList()
             }
-        }
+            productListLiveData?.value = productList
+        })
     }
 
     private fun orderAdd(productId: Int) {
-        viewModelScope.launch {
-            try {
-                val message = withContext(Dispatchers.IO) {
-                    HttpRepository.orderAdd(productId)
-                }
-                orderLiveData?.value = message
-            } catch (e: Exception) {
-                e.printStackTrace()
+        launch(block = {
+            val message = withContext(Dispatchers.IO) {
+                HttpRepository.orderAdd(productId)
             }
-        }
+            orderLiveData?.value = message
+        })
     }
 }

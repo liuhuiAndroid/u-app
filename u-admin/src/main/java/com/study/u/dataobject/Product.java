@@ -20,10 +20,10 @@ public class Product {
     /** 期限中文描述. */
     private String time_desc;
 
-    /** 收益. */
+    /** 收益百分比. */
     private Integer gain;
 
-    /** 条件. */
+    /** 条件（U币个数）. */
     private Integer gainCondition;
 
 }

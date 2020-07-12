@@ -6,6 +6,7 @@ import com.study.u.utils.UUIDUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.sql.Date;
 import java.util.List;
 
 public class OrderRepositoryTest extends UApplicationTests {
@@ -20,8 +21,8 @@ public class OrderRepositoryTest extends UApplicationTests {
         order.setUsername("123123");
         order.setInvestAmount(12);
         order.setProfitAmount(13);
-        order.setStartTime("4");
-        order.setEndTime("78");
+        order.setStartTime(new Date(System.currentTimeMillis()));
+        order.setEndTime(new Date(System.currentTimeMillis()));
         order.setIsWithdraw(12);
         orderRepository.save(order);
     }
